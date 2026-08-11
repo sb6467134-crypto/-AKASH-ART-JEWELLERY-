@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AKASH ART — Premium jewellery and murti design portfolio.">
+<title>AKASH ART — Jewellery & Murti Designs</title>
+<style>
+:root{
+  --bg:#080706;--panel:#11100d;--panel2:#15120d;--gold:#d9a93a;--gold2:#f7d77b;
+  --text:#f6f0df;--muted:#a89d87;--line:rgba(217,169,58,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,"Times New Roman",serif;background:radial-gradient(circle at 50% -10%,#3a250c 0,#100c07 27%,var(--bg) 55%);color:var(--text);line-height:1.5}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:50;background:rgba(8,7,6,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:22px;font-weight:700;letter-spacing:4px;color:var(--gold2)}
+.brand span{display:block;font:10px Arial,sans-serif;letter-spacing:3px;color:#9c7b30;margin-top:-3px}
+nav{display:flex;gap:24px;font:13px Arial,sans-serif;color:#d7cdb9}
+nav a:hover{color:var(--gold2)}
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--gold2);padding:8px 10px;border-radius:8px}
+.hero{min-height:650px;display:grid;place-items:center;text-align:center;padding:90px 20px 70px}
+.eyebrow{font:11px Arial,sans-serif;letter-spacing:5px;color:var(--gold);text-transform:uppercase}
+h1{font-size:clamp(48px,8vw,92px);line-height:.95;margin:18px 0;background:linear-gradient(90deg,#c9962d,#fff1a9,#d19b2f);-webkit-background-clip:text;color:transparent}
+.hero p{max-width:680px;margin:20px auto;color:#c4b9a4;font:15px Arial,sans-serif}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;background:linear-gradient(135deg,#f5cf68,#b77b12);color:#211706;font:700 13px Arial,sans-serif;border:0;cursor:pointer;box-shadow:0 10px 30px rgba(211,161,50,.18)}
+.btn.alt{background:transparent;color:var(--gold2);border:1px solid var(--line);box-shadow:none}
+.btn:hover{transform:translateY(-2px)}
+.section{padding:85px 0}
+.section-head{text-align:center;margin-bottom:34px}
+.section-head .eyebrow{letter-spacing:3px}
+h2{font-size:38px;color:var(--gold2);margin:8px 0}
+.sub{color:var(--muted);font:13px Arial,sans-serif}
+.categories{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.cat{min-height:130px;padding:22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.008));cursor:pointer;transition:.25s;display:flex;flex-direction:column;justify-content:flex-end}
+.cat:hover,.cat.active{border-color:rgba(247,215,123,.7);transform:translateY(-5px);box-shadow:0 14px 35px rgba(0,0,0,.35)}
+.cat .num{font:10px Arial,sans-serif;color:#9b7a31;letter-spacing:2px;margin-bottom:auto}
+.cat h3{font-size:18px;color:#f1d276}
+.cat p{font:10px Arial,sans-serif;color:#968d7b;margin-top:4px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin:0 0 20px;flex-wrap:wrap}
+.search{background:#0d0c0a;border:1px solid var(--line);border-radius:999px;padding:12px 17px;color:white;outline:none;min-width:240px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--panel);border:1px solid rgba(217,169,58,.18);border-radius:15px;overflow:hidden;cursor:pointer;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:rgba(247,215,123,.55)}
+.art{height:245px;background:radial-gradient(circle at 50% 45%,#6f501b 0,#231808 35%,#0e0c09 70%);display:grid;place-items:center;position:relative;overflow:hidden}
+.art:after{content:"";width:125px;height:125px;border:2px solid rgba(247,215,123,.35);border-radius:50%;box-shadow:0 0 35px rgba(217,169,58,.16),inset 0 0 30px rgba(217,169,58,.1)}
+.art .symbol{position:absolute;color:#f2ca61;font-size:56px;text-shadow:0 0 25px rgba(242,202,97,.25)}
+.card-body{padding:16px}
+.card h3{font-size:17px;color:#f1d276}
+.card p{font:11px Arial,sans-serif;color:#948b79;margin-top:4px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.box{padding:32px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025)}
+.box h3{font-size:25px;color:var(--gold2);margin-bottom:10px}
+.box p,.box li{font:14px Arial,sans-serif;color:#b5ab98}
+.box ul{padding-left:20px;margin-top:14px}
+.contact{text-align:center;background:linear-gradient(180deg,#0d0b08,#171006)}
+.contact-actions{display:flex;justify-content:center;gap:12px;margin-top:24px;flex-wrap:wrap}
+footer{padding:30px 0;border-top:1px solid var(--line);color:#786f60;font:11px Arial,sans-serif;text-align:center}
+.whatsapp{position:fixed;right:22px;bottom:22px;z-index:60;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#fff;font:bold 25px Arial;box-shadow:0 12px 30px rgba(37,211,102,.25)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;place-items:center;z-index:100;padding:20px}
+.modal.show{display:grid}
+.modal-box{width:min(760px,95vw);background:#11100d;border:1px solid var(--line);border-radius:20px;padding:25px;position:relative}
+.close{position:absolute;right:15px;top:12px;border:0;background:none;color:#ddd;font-size:28px;cursor:pointer}
+.modal-art{height:350px;border-radius:14px;background:radial-gradient(circle at center,#74541b,#161008 62%,#090806);display:grid;place-items:center;margin-bottom:20px}
+.modal-art .symbol{font-size:100px;color:#f3ce6a}
+@media(max-width:900px){.categories{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}nav{display:none}.menu{display:block}}
+@media(max-width:560px){.hero{min-height:560px}.categories,.grid{grid-template-columns:1fr}h2{font-size:30px}.nav{height:65px}.search{width:100%}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a href="#" class="brand">AKASH ART<span>JEWELLERY • MURTI • CUSTOM DESIGN</span></a>
+    <nav>
+      <a href="#home">Home</a><a href="#categories">Categories</a><a href="#designs">Designs</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="menu" onclick="document.querySelector('nav').style.display=document.querySelector('nav').style.display==='flex'?'none':'flex'">☰</button>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div>
+    <div class="eyebrow">AKASH ART • PREMIUM DESIGN STUDIO</div>
+    <h1>Jewellery &<br>Murti Designs</h1>
+    <p>Elegant jewellery concepts, traditional murti designs and premium custom artwork — presented in one professional portfolio.</p>
+    <a class="btn" href="#categories">Explore 10 Categories ↓</a>
+  </div>
+</section>
+
+<section id="categories" class="section">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Explore</div><h2>Our Design Categories</h2><div class="sub">Choose a category to view its designs.</div></div>
+    <div class="categories" id="catGrid"></div>
+  </div>
+</section>
+
+<section id="designs" class="section" style="padding-top:20px">
+  <div class="container">
+    <div class="toolbar">
+      <div><h2 style="font-size:30px;margin:0">Featured Designs</h2><div class="sub" id="countText">Showing all designs</div></div>
+      <input class="search" id="search" placeholder="Search designs..." oninput="renderCards()">
+    </div>
+    <div class="grid" id="designGrid"></div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container about">
+    <div class="box"><h3>Made for your vision</h3><p>Use this website as a premium portfolio for jewellery and murti artwork. Replace the sample cards with your own images whenever you are ready.</p><ul><li>10 dedicated design categories</li><li>Responsive on mobile & desktop</li><li>Search + category filtering</li><li>Design preview popup</li></ul></div>
+    <div class="box"><h3>Custom Design Enquiry</h3><p>Have a specific jewellery or murti reference? Send the reference image and your requirements directly through WhatsApp.</p><div style="margin-top:20px"><a class="btn" href="https://wa.me/918001941104?text=Hello%20AKASH%20ART%2C%20I%20want%20a%20custom%20design." target="_blank">Chat on WhatsApp</a></div></div>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <div class="container"><div class="eyebrow">Get in touch</div><h2>Let's Create Something Beautiful</h2><div class="sub">For jewellery, murti or custom design enquiries.</div>
+  <div class="contact-actions"><a class="btn" href="https://wa.me/918001941104?text=Hello%20AKASH%20ART%2C%20I%20want%20to%20discuss%20a%20design." target="_blank">WhatsApp Enquiry</a><a class="btn alt" href="#categories">View Categories</a></div></div>
+</section>
+</main>
+
+<a class="whatsapp" href="https://wa.me/918001941104?text=Hello%20AKASH%20ART" target="_blank" aria-label="WhatsApp">☎</a>
+<footer>© 2026 AKASH ART — Jewellery & Murti Design Studio</footer>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box"><button class="close" onclick="closeModal()">×</button><div class="modal-art"><div class="symbol" id="modalSymbol">◇</div></div><h2 id="modalTitle" style="font-size:30px"></h2><p id="modalDesc" class="sub"></p><div style="margin-top:20px"><a id="modalWA" class="btn" target="_blank">Ask about this design</a></div></div>
+</div>
+
+<script>
+const categories=[
+["gold","Gold Jewellery","Elegant traditional & modern gold designs","◇"],
+["necklace","Necklace Designs","Premium statement collections","◈"],
+["ring","Ring Designs","Classic and contemporary styles","○"],
+["pendant","Pendant Designs","Detailed artistic creations","♢"],
+["bangle","Bangle Designs","Royal gold-inspired patterns","◌"],
+["custom","Custom Designs","Made for your unique vision","✦"],
+["murti3d","Murti 3D Designs","Detailed dimensional murti artwork","♜"],
+["murti2d","Murti 2D Designs","Clean flat and artistic designs","♧"],
+["murti-ring","Murti Ring Designs","Unique ring & murti combinations","◎"],
+["expensive-murti","Expensive Murti Designs","Premium luxury murti concepts","♕"]
+];
+const designs=[];
+categories.forEach((c,ci)=>{
+  for(let i=1;i<=4;i++) designs.push({cat:c[0],title:`${c[1]} ${String(i).padStart(2,"0")}`,desc:c[2],symbol:c[3]});
+});
+let active="all";
+const catGrid=document.getElementById("catGrid");
+catGrid.innerHTML=categories.map((c,i)=>`<div class="cat" data-cat="${c[0]}" onclick="filterCat('${c[0]}')"><div class="num">0${i+1}</div><h3>${c[1]}</h3><p>${c[2]}</p></div>`).join("");
+
+function filterCat(cat){
+ active=cat;
+ document.querySelectorAll(".cat").forEach(x=>x.classList.toggle("active",x.dataset.cat===cat));
+ document.getElementById("designs").scrollIntoView({behavior:"smooth",block:"start"});
+ renderCards();
+}
+function renderCards(){
+ const q=document.getElementById("search").value.toLowerCase().trim();
+ const list=designs.filter(d=>(active==="all"||d.cat===active)&&(!q||(d.title+" "+d.desc).toLowerCase().includes(q)));
+ document.getElementById("countText").textContent=`Showing ${list.length} design${list.length!==1?"s":""}${active!=="all"?" in "+categories.find(c=>c[0]===active)[1]:""}`;
+ document.getElementById("designGrid").innerHTML=list.map((d,idx)=>`<article class="card" onclick='openModal(${JSON.stringify(d)})'><div class="art"><div class="symbol">${d.symbol}</div></div><div class="card-body"><h3>${d.title}</h3><p>${d.desc}</p></div></article>`).join("");
+}
+function openModal(d){
+ document.getElementById("modalTitle").textContent=d.title;
+ document.getElementById("modalDesc").textContent=d.desc;
+ document.getElementById("modalSymbol").textContent=d.symbol;
+ document.getElementById("modalWA").href="https://wa.me/918001941104?text="+encodeURIComponent("Hello AKASH ART, I am interested in "+d.title+".");
+ document.getElementById("modal").classList.add("show");
+}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+renderCards();
+</script>
+</body>
+</html>
