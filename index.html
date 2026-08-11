@@ -142,8 +142,23 @@ const categories=[
 ["expensive-murti","Expensive Murti Designs","Premium luxury murti concepts","♕"]
 ];
 const designs=[];
+const goldImages=[
+  "images/gold-jewellery/1620bae0-ed46-4847-82f2-9d3bf78b0b95.jpg",
+  "images/gold-jewellery/5127e679-656b-4379-8461-d4a2169c31ac.jpg",
+  "images/gold-jewellery/901ed697-217c-4066-9dd8-81e78f084632.jpg"
+];
+
 categories.forEach((c,ci)=>{
-  for(let i=1;i<=4;i++) designs.push({cat:c[0],title:`${c[1]} ${String(i).padStart(2,"0")}`,desc:c[2],symbol:c[3]});
+  const count = c[0]==="gold" ? 3 : 4;
+  for(let i=1;i<=count;i++){
+    designs.push({
+      cat:c[0],
+      title:`${c[1]} ${String(i).padStart(2,"0")}`,
+      desc:c[2],
+      symbol:c[3],
+      img:c[0]==="gold" ? goldImages[i-1] : ""
+    });
+  }
 });
 let active="all";
 const catGrid=document.getElementById("catGrid");
@@ -159,7 +174,7 @@ function renderCards(){
  const q=document.getElementById("search").value.toLowerCase().trim();
  const list=designs.filter(d=>(active==="all"||d.cat===active)&&(!q||(d.title+" "+d.desc).toLowerCase().includes(q)));
  document.getElementById("countText").textContent=`Showing ${list.length} design${list.length!==1?"s":""}${active!=="all"?" in "+categories.find(c=>c[0]===active)[1]:""}`;
- document.getElementById("designGrid").innerHTML=list.map((d,idx)=>`<article class="card" onclick='openModal(${JSON.stringify(d)})'><div class="art"><div class="symbol">${d.symbol}</div></div><div class="card-body"><h3>${d.title}</h3><p>${d.desc}</p></div></article>`).join("");
+document.getElementById("designGrid").innerHTML=list.map((d,idx)=>`<article class="card" onclick='openModal(${JSON.stringify(d)})'><div class="card-art">${d.img?`<img src="${d.img}" alt="${d.title}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">`:`<div class="symbol">${d.symbol}</div>`}</div><div class="card-body"><h3>${d.title}</h3><p>${d.desc}</p></div></article>`).join("");
 }
 function openModal(d){
  document.getElementById("modalTitle").textContent=d.title;
