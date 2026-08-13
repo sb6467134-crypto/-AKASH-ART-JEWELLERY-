@@ -142,21 +142,37 @@ const categories=[
 ["expensive-murti","Expensive Murti Designs","Premium luxury murti concepts","♕"]
 ];
 const designs=[];
-const goldImages=[
-  "images/01.png",
-  "images/02.png",
-  "images/03.png",
-  "images/04.png"
+const expensiveMurtiImages = [
+  "images/expensive-murti/AK (1).png",
+  "images/expensive-murti/AK (2).png",
+  "images/expensive-murti/AK (3).png",
+  "images/expensive-murti/AK (4).png",
+  "images/expensive-murti/AK (5).png",
+  "images/expensive-murti/AK (6).png",
+  "images/expensive-murti/AK (7).png",
+  "images/expensive-murti/AK (8).png",
+  "images/expensive-murti/AK (9).png",
+  "images/expensive-murti/AK (10).png",
+  "images/expensive-murti/AK (11).png",
+  "images/expensive-murti/AK (12).png",
+  "images/expensive-murti/AK (13).png",
+  "images/expensive-murti/AK (14).png",
+  "images/expensive-murti/AK (15).png",
+  "images/expensive-murti/AK (16).png",
+  "images/expensive-murti/AK (17).png",
+  "images/expensive-murti/AK (18).png",
+  "images/expensive-murti/AK (19).png",
+  "images/expensive-murti/AK (20).png"
 ];
 categories.forEach((c,ci)=>{
-  const count = c[0]==="gold" ? 3 : 4;
+ const count = c[0]=="gold" ? 3 : (c[0]=="expensive-murti" ? expensiveMurtiImages.length : 4);
   for(let i=1;i<=count;i++){
     designs.push({
       cat:c[0],
       title:`${c[1]} ${String(i).padStart(2,"0")}`,
       desc:c[2],
       symbol:c[3],
-      img:c[0]==="gold" ? goldImages[i-1] : ""
+     img:c[0]=="gold" ? goldImages[i-1] : (c[0]=="expensive-murti" ? expensiveMurtiImages[i-1] : "")
     });
   }
 });
